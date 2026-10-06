@@ -38,8 +38,11 @@
 		}
 	}
 
-	// Menu links (active item keeps the stock primary background + white text)
+	// Menu links (active item keeps the stock primary background + white text).
+	// Stock aside/_menu.scss paints hover/here/show text WHITE; these selectors
+	// mirror the stock ones (plus the theme attribute) so they win in Light mode.
 	.aside-menu .menu .menu-item {
+		// Default state
 		.menu-link:not(.active) {
 			color: var(--bs-gray-700);
 
@@ -58,17 +61,25 @@
 			.menu-bullet .bullet {
 				background-color: var(--bs-gray-400);
 			}
+		}
 
-			&:hover {
-				.menu-title,
-				.menu-icon,
-				.menu-icon i {
-					color: var(--bs-primary);
-				}
+		// Hover / here (parent of active page) / show (open submenu)
+		&.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here),
+		.menu-link:hover:not(.disabled):not(.active):not(.here),
+		&.here > .menu-link:not(.active),
+		&.show > .menu-link:not(.active) {
+			color: var(--bs-primary);
+			background-color: var(--bs-gray-100);
 
-				.menu-bullet .bullet {
-					background-color: var(--bs-primary);
-				}
+			.menu-title,
+			.menu-icon,
+			.menu-icon .svg-icon,
+			.menu-icon i {
+				color: var(--bs-primary);
+			}
+
+			.menu-bullet .bullet {
+				background-color: var(--bs-primary);
 			}
 		}
 	}
