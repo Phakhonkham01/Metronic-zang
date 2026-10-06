@@ -1,0 +1,25 @@
+//
+// Root
+//
+
+// Light mode
+@include color-mode(light) {
+    // Page bg
+    --#{$prefix}page-bg: #{$page-bg};
+
+    // App blank bg color
+    --#{$prefix}app-blank-bg: #{$app-blank-bg-color};
+
+    // Header
+    --#{$prefix}header-bg-color: #{get($header-config, bg-color)};
+    --#{$prefix}header-border-bottom: #{get($header-config, border-bottom)};
+    --#{$prefix}header-box-shadow: #{get($header-config, box-shadow)};
+
+    // Aside
+    --#{$prefix}aside-border: #{get($aside-config, border)};
+
+    // Footer
+    --#{$prefix}footer-bg-color: #{get($footer-config, bg-color)};
+}
+
+// Dark mode

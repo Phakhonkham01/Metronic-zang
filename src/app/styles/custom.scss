@@ -1,0 +1,75 @@
+//
+// Project overrides on top of Metronic (keep this file small).
+// Uses theme CSS variables only, so colors stay in sync with the theme.
+//
+
+// ---------------------------------------------------------------------------
+// Sidebar follows the theme mode.
+// Stock demo8 keeps the aside dark in both modes; in Light mode we make the
+// aside, brand bar and aside footer light. Dark mode is untouched (stock).
+// ---------------------------------------------------------------------------
+[data-bs-theme="light"] {
+	.aside,
+	.header .header-brand,
+	.header-brand {
+		background-color: var(--bs-body-bg);
+		border-bottom-color: var(--bs-border-color);
+	}
+
+	.aside {
+		border-right: 1px solid var(--bs-border-color);
+		box-shadow: none;
+
+		.aside-toolbar .aside-user {
+			border-top-color: var(--bs-border-color);
+		}
+
+		// Footer "Sign Out" button
+		.aside-footer .btn-custom {
+			color: var(--bs-gray-700);
+			background-color: var(--bs-gray-100);
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: var(--bs-primary);
+				background-color: var(--bs-primary-light);
+			}
+		}
+	}
+
+	// Menu links (active item keeps the stock primary background + white text)
+	.aside-menu .menu .menu-item {
+		.menu-link:not(.active) {
+			color: var(--bs-gray-700);
+
+			.menu-title {
+				color: var(--bs-gray-700);
+			}
+
+			.menu-icon {
+				&,
+				.svg-icon,
+				i {
+					color: var(--bs-gray-500);
+				}
+			}
+
+			.menu-bullet .bullet {
+				background-color: var(--bs-gray-400);
+			}
+
+			&:hover {
+				.menu-title,
+				.menu-icon,
+				.menu-icon i {
+					color: var(--bs-primary);
+				}
+
+				.menu-bullet .bullet {
+					background-color: var(--bs-primary);
+				}
+			}
+		}
+	}
+}
